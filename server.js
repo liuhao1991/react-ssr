@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8080;
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static('build/public'));
+app.use(express.static('build/static'));
 
 // tell the app to use the above rules
 app.get('*', (req, res) => {
@@ -34,7 +34,7 @@ app.get('*', (req, res) => {
       <body>
         <div id="root">${content}</div>
         <script>window.__INIT_DATA__ = ${serialize({name: 'LIUHAO'})}</script>
-        <script src="client_bundle.js"></script>
+        <script src="js/client_bundle.js"></script>
       </body>
     </html>
   `;

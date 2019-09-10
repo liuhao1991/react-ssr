@@ -7,9 +7,9 @@ module.exports = {
   target: 'node',
   entry: './src/index.js',
   output: {
-    filename: 'client_bundle.js',
-    path: path.resolve(__dirname, 'build/public'),
-    publicPath: '/build/public'
+    filename: 'js/client_bundle.js',
+    path: path.resolve(__dirname, 'build/static'),
+    publicPath: '/build/static'
   },
   module: {
     rules: [
@@ -19,7 +19,14 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         }
-      }
+      }, {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          publicPath: '/',
+          name: 'media/[name].[ext]'
+        }
+      },
     ]
   },
   // plugins: [
