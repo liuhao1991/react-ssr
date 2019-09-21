@@ -1,13 +1,14 @@
 import React from 'react';
+import './Home.css';
 
-const Home = () => {
+const Home = ({ name }) => {
   function test() {
     console.log('test fired');
   }
   return (
     <div>
-      <p>Home Page</p>
-      <img src={ require('../googlelogo_color_92x30dp.png') } />
+      <p>Home Pagex2 { name }</p>
+      <img src={ require('../assets/googlelogo_color_92x30dp.png') } />
       <button onClick={() => test()}>fire test</button>
     </div>
   );

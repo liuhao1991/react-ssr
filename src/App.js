@@ -1,11 +1,10 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import {Link } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 
-import Home from './pages/Home';
-import About from './pages/About';
+import routes from './routes';
 
-const App = () => {
+const App = (props) => {
   return (
     <div>
       <div>
@@ -13,8 +12,9 @@ const App = () => {
         <Link to="/about">about</Link>
       </div>
       <Switch>
-        <Route path="/" exact component={ Home }></Route>
-        <Route path="/about" component={ About }></Route>
+        {routes.map((route, index) => (
+          <Route key={ index } {...route} />
+        ))}
       </Switch>
     </div>
   )

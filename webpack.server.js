@@ -1,10 +1,9 @@
 const path = require('path');
-// const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const nodeExternals = require('webpack-node-externals');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   target: 'node',
   entry: './server.js',
   output: {
@@ -28,6 +27,13 @@ module.exports = {
           publicPath: '/',
           name: 'media/[name].[ext]',
           emitFile: false,
+        }
+      }, {
+        test: /\.css$/,
+        loader: 'css-loader',
+        options: {
+          onlyLocals: true,
+          modules: true,
         }
       },
     ]
